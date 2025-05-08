@@ -10,7 +10,7 @@ class ProDetailAdmin extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      contact: {} // Changed from contacts (array) to contact (object)
+      contact: {} 
     };
   }
 
@@ -24,7 +24,6 @@ class ProDetailAdmin extends Component {
         data: null
       })
         .then((res) => {
-          // Set the contact object directly
           this.setState({
             contact: res.data
           });
@@ -36,7 +35,7 @@ class ProDetailAdmin extends Component {
   }
 
   render() {
-    var { contact } = this.state; // Destructure the contact object
+    var { contact } = this.state; 
 
     return (
       <React.Fragment>

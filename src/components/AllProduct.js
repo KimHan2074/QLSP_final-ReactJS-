@@ -31,7 +31,6 @@ const AllProduct = () => {
   };
 
   useEffect(() => {
-    // Initial fetch (equivalent to componentDidMount)
     axios({
       method: 'GET',
       url: 'http://localhost:3000/products',
@@ -46,7 +45,6 @@ const AllProduct = () => {
   }, []);
 
   useEffect(() => {
-    // Fetch sorted products when sort changes (equivalent to componentWillUpdate)
     fetchProducts();
   }, [state.sort]);
 

@@ -6,7 +6,6 @@ import { NavLink, Redirect } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-// Functional component for ProductList
 const ProductList = () => {
   const [products, setProducts] = useState([]);
   const [keyword, setKeyword] = useState('');
@@ -23,8 +22,7 @@ const ProductList = () => {
       .catch((err) => {
         console.error(err);
       });
-  }, []); // Empty dependency array ensures this runs once when the component mounts
-
+  }, []); 
   const onDelete = (id) => {
     axios({
       method: 'DELETE',
@@ -107,7 +105,6 @@ const ProductList = () => {
   );
 };
 
-// Functional component for Item
 const Item = ({ product, index, onDelete }) => {
   const handleDelete = (id) => {
     if (window.confirm('Thí chủ chắc chắn muốn xóa ?')) {

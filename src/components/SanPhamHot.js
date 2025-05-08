@@ -5,7 +5,6 @@ import Footer from './layout_page/Footer.js';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 
-// Functional component for AllProduct
 const AllProduct = () => {
   const [products, setProducts] = useState([]);
   const [keyword, setKeyword] = useState('');
@@ -22,7 +21,7 @@ const AllProduct = () => {
       .catch((err) => {
         console.error(err);
       });
-  }, []); // Empty dependency array ensures this runs once when the component mounts
+  }, []); 
 
   const onChange = (event) => {
     setKeyword(event.target.value);

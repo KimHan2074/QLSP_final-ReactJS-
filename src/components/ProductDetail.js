@@ -19,8 +19,7 @@ const ProductDetail = ({ match }) => {
           console.error(err);
         });
     }
-  }, [match]); // Dependencies: run effect when 'match' changes
-
+  }, [match]); 
   return (
     <React.Fragment>
       <Header />
