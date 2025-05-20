@@ -7,7 +7,7 @@ import axios from 'axios';
 
 const AllProduct = () => {
   const [products, setProducts] = useState([]);
-  const [keyword, setKeyword] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     axios({
@@ -23,13 +23,13 @@ const AllProduct = () => {
       });
   }, []); 
 
-  const onChange = (event) => {
-    setKeyword(event.target.value);
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
   };
 
-  const search = products.filter((product) => {
-    return product.name.toLowerCase().indexOf(keyword.toLowerCase()) !== -1;
-  });
+  const filteredProducts = products.filter((product) =>
+    product.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <React.Fragment>
@@ -51,19 +51,21 @@ const AllProduct = () => {
             <div className="container mb-5">
               <h2 className="text-danger text-center mt-5">Danh sách sản phẩm KHUYẾN MÃI tại cửa hàng</h2>
               <input
-                className="mt-3"
-                name="keyword"
-                value={keyword}
-                onChange={onChange}
+                className="mt-3 form-control"
+                name="searchTerm"
+                value={searchTerm}
+                onChange={handleSearch}
                 type="text"
-                placeholder="Search.."
+                placeholder="Tìm kiếm sản phẩm..."
               />
-              {search.map((product, index) => {
-                if (product.name_category === 'sản phẩm khuyến mãi') {
-                  return <Item key={index} product={product} />;
-                }
-                return null;
-              })}
+              <div className="row">
+                {filteredProducts.map((product, index) => {
+                  if (product.name_category === 'sản phẩm khuyến mãi') {
+                    return <Item key={index} product={product} />;
+                  }
+                  return null;
+                })}
+              </div>
             </div>
           </div>
         </div>

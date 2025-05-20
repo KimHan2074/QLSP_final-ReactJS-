@@ -93,7 +93,7 @@ const Banner = () => {
             <span className="mr-2 d-none d-lg-inline text-gray-600 small">Phan Văn Thông</span>
             <img
               className="img-profile rounded-circle"
-              src="https://scontent.fsgn2-3.fna.fbcdn.net/v/t1.0-9/37749370_1890435077922841_3688431438933262336_n.jpg?_nc_cat=108&_nc_eui2=AeGXJduDDq0XB_oclIPDiwqzY7DFr7GNO9UItFhJ4RuBJG_3DifKnzqsjiXGbDqTbKcDbDwExhffiP_t1atq4WgL5Kg8o705cvMO5cHY65Jgpw&_nc_oc=AQluRPKSWzHyOYcORZSMspYrsYq4uQwdty2aDnzQLaKgdd3OTOiSlH4drcqVxKQCfXA&_nc_ht=scontent.fsgn2-3.fna&oh=e14dab77a288358738395ad14d629a14&oe=5E53E5A3"
+              src="https://i.pinimg.com/236x/a0/e3/6d/a0e36dac3b706ddf17815449b4bc33ed.jpg"
               alt="User profile"
             />
           </a>

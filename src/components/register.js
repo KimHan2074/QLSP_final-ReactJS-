@@ -3,13 +3,13 @@ import Header from './layout_page/Header.js';
 import Footer from './layout_page/Footer.js';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Redirect, NavLink } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
-const Login = () => {
+const Register = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [role, setRole] = useState(""); 
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [registered, setRegistered] = useState(false);
 
   const onChange = (e) => {
     const { name, value } = e.target;
@@ -17,39 +17,34 @@ const Login = () => {
       setUsername(value);
     } else if (name === 'password') {
       setPassword(value);
+    } else if (name === 'confirmPassword') {
+      setConfirmPassword(value);
     }
   };
 
-  const onLogin = (e) => {
+  const onRegister = (e) => {
     e.preventDefault();
-    // TH1: admin
-    if (username === 'admin' && password === 'admin') {
-      localStorage.setItem('username', username);
-      toast.success("Đăng nhập thành công!");
-      setRole('admin');
-      setLoggedIn(true);
+    if (username.length < 4) {
+      toast.error("Tên đăng nhập phải có ít nhất 4 ký tự!");
       return;
     }
-    // TH2: user đã đăng ký
-    const registeredUsername = localStorage.getItem('registeredUsername');
-    const registeredPassword = localStorage.getItem('registeredPassword');
-    if (username === registeredUsername && password === registeredPassword) {
-      localStorage.setItem('username', username);
-      toast.success("Đăng nhập thành công!");
-      setRole('user');
-      setLoggedIn(true);
+    if (password.length < 6) {
+      toast.error("Mật khẩu phải có ít nhất 6 ký tự!");
       return;
     }
-    // Nếu không khớp
-    toast.error("Sai tên đăng nhập hoặc mật khẩu!");
+    if (password !== confirmPassword) {
+      toast.error("Mật khẩu xác nhận không khớp!");
+      return;
+    }
+
+    localStorage.setItem('registeredUsername', username);
+    localStorage.setItem('registeredPassword', password);
+    setRegistered(true);
+    toast.success("Đăng ký thành công!");
   };
 
-  if (loggedIn) {
-    if (role === 'admin'){
-      return <Redirect to="/product-list" />;
-    } else if (role === 'user'){
-      return <Redirect to="/" />;
-    }
+  if (registered) {
+    return <Redirect to="/login" />;
   }
 
   return (
@@ -57,14 +52,14 @@ const Login = () => {
       <Header />
       <div className="container">
         <div id="content">
-          <form action="#" method="post" onSubmit={onLogin} className="beta-form-checkout">
+          <form action="#" method="post" onSubmit={onRegister} className="beta-form-checkout">
             <div className="row">
               <div className="col-sm-3" />
               <div className="col-sm-6">
-                <h4>Đăng nhập</h4>
+                <h4>Đăng ký</h4>
                 <div className="space20"> </div>
                 <div className="form-block">
-                  <label htmlFor="username">UserName*</label>
+                  <label htmlFor="username">Tên đăng nhập*</label>
                   <input
                     className="form-control"
                     type="text"
@@ -75,7 +70,7 @@ const Login = () => {
                   />
                 </div>
                 <div className="form-block">
-                  <label htmlFor="password">Password*</label>
+                  <label htmlFor="password">Mật khẩu*</label>
                   <input
                     className="form-control"
                     type="password"
@@ -86,13 +81,18 @@ const Login = () => {
                   />
                 </div>
                 <div className="form-block">
-                  <button type="submit" className="btn btn-primary">Login</button>
+                  <label htmlFor="confirmPassword">Xác nhận mật khẩu*</label>
+                  <input
+                    className="form-control"
+                    type="password"
+                    name="confirmPassword"
+                    value={confirmPassword}
+                    onChange={onChange}
+                    required
+                  />
                 </div>
                 <div className="form-block">
-                  <p>
-                    Don't have an account?{' '}
-                    <NavLink to="/register">Register</NavLink>
-                  </p>
+                  <button type="submit" className="btn btn-primary">Đăng Ký</button>
                 </div>
               </div>
               <div className="col-sm-3" />
@@ -106,4 +106,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;

@@ -14,7 +14,7 @@ const Header = () => {
           
             <div className="pull-right auto-width-right">
               <ul className="top-details menu-beta l-inline">
-                <li><NavLink className="text-decoration" to ="/login">Admin Đăng nhập</NavLink></li>
+                <li><NavLink className="text-decoration" to ="/login">Đăng nhập</NavLink></li>
               </ul>
             </div>
           

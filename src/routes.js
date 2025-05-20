@@ -1,5 +1,6 @@
 import React from 'react';
 import Login from './components/Login.js';
+import Register from './components/register.js';
 import AllProduct from './components/AllProduct.js';
 import ProductList from './components/ProductList.js';
 import ProductDetail from './components/ProductDetail.js';
@@ -20,6 +21,11 @@ const routes = [
 		path : '/',
 		exact : true,
 		main : ()=> <AllProduct />
+	},
+	{
+		path : '/register',
+		exact : true,
+		main : ({history})=> <Register history={history} />
 	},
 	{
 		path : '/login',

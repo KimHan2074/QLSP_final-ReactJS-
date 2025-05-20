@@ -1,19 +1,6 @@
 {
   "products": [
     {
-      "name": "Doughnuts VTC",
-      "price": "15",
-      "image": "/images/1434429117-banh-su-kem-chien-20.jpg",
-      "color": "Hồng bánh kem",
-      "name_category": "sản phẩm hot",
-      "material": "Bánh và trứng",
-      "expiry_date": "3 ngày",
-      "origin": "Đà Nẵng",
-      "description": "Dành cho những người đói bụng",
-      "tinhtranghang": true,
-      "id": "3"
-    },
-    {
       "name": "Bánh Tiramisu Italia",
       "price": "36",
       "image": "/images/banhbonglantrungmuoi.jpg",
@@ -181,19 +168,6 @@
       "description": "bánh ngon ",
       "tinhtranghang": true,
       "id": "1zPLb6X"
-    },
-    {
-      "name": "DANVOUY Womens T Shirt Casual Cotton Short",
-      "price": "1200000",
-      "image": "/images/bánh nướng.jpg",
-      "color": "Vàng",
-      "name_category": "",
-      "material": "Bột Mì",
-      "expiry_date": "2025-05-10",
-      "origin": "Việt Nam",
-      "description": "Làm từ bột mì nhập từ nước Ý.",
-      "tinhtranghang": true,
-      "id": "_ykpS4D"
     }
   ],
   "categories": [
